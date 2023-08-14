@@ -110,6 +110,14 @@ resource "aws_lb_listener" "example" {
   }
 }
 
+#keypair
+
+resource "aws_key_pair" "deployer" {
+  key_name   = "deployer-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCt/jp/5yQbylZuwFBieKwCkF8+KE+BrKMQr6NnujfKtDqiMcR8lauCcJf7OsHPkQifXzt07BQrOXun5sdN4N6OK0HfoiiQsLzeoMwDUnGu+NLTeJ5KZCcgJWjPYwNj7VufH8AFrz4jZ+8+zefkX4u1RGHqkx/+3gQDtUbCdBtB8iXY2ViU/Ln/mLiRgGu+0Ejd+oErCy/Lnpge2QowzuBQKofi+vlYmN3yc/j6UwmiJu89LNHnQjS8HNfvSGoSA4i1lAK6nT9cYSbmiJJraGlUBwQmegqt8fSGyUrjMyY62BppSDiQm6hzGSCv8cbrr+fDQmJjuUe6FBxtkzWQsSXEFGvd9vrwteAy+OScjb4v5Ihnblwj40+vmV354mwdi+3HwLFRO5XEQMKBRuxF9XMW759AAwTs8BN+m23bSLtYzuhp+iNraVFQlSSxM/ooWM4tshq/duOR+5HRzMkxtYxQzdG7BFC1RGgFQw3Rh4xGWtOjxqyOuzk7H0Apkh4fFQc= root@DESKTOP-P4MD8O8"
+}
+
+
 resource "aws_instance" "rs1" {
   ami           = var.ami_id
   instance_type = var.instance_type
